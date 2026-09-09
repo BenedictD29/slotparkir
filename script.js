@@ -21,11 +21,12 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 
+const slotRef = ref(database, "parking/slot");
+const connectedRef = ref(database, ".info/connected");
+
 // =========================
 // BACA DATA SLOT (REALTIME)
 // =========================
-const slotRef = ref(database, "parking/slot");
-
 onValue(slotRef, (snapshot) => {
     if (snapshot.exists()) {
         const slot = snapshot.val();
@@ -33,16 +34,16 @@ onValue(slotRef, (snapshot) => {
         // Tampilkan angka slot
         document.getElementById("slot").textContent = slot;
 
-        // Tampilkan Waktu WIB
+        // Tampilkan Waktu WIB saat data diterima
         const now = new Date();
         const time = now.toLocaleTimeString("id-ID", {
             timeZone: "Asia/Jakarta",
             hour: "2-digit",
             minute: "2-digit",
             second: "2-digit"
-        });
+        }).replace(/\./g, ':'); // Format HH:MM:SS
 
-        document.getElementById("time").textContent = time + " WIB";
+        document.getElementById("time").textContent = `Terakhir Update: ${time} WIB`;
     } else {
         document.getElementById("slot").textContent = "0";
         document.getElementById("time").textContent = "Data Kosong";
@@ -50,14 +51,36 @@ onValue(slotRef, (snapshot) => {
 }, (error) => {
     console.error("Gagal terhubung ke Firebase:", error);
     document.getElementById("time").textContent = "Koneksi Terputus";
+    
+    // Paksa reconnect otomatis jika terjadi error
+    refreshConnection();
 });
 
-// Auto Reconnect Listener
-const connectedRef = ref(database, ".info/connected");
+// =========================
+// AUTO RECONNECT & VISIBILITY LOGIC
+// =========================
+
+// 1. Cek Status Koneksi Realtime
 onValue(connectedRef, (snap) => {
     if (snap.val() === true) {
         console.log("Status: Terhubung ke Firebase");
     } else {
         console.warn("Status: Terputus, mencoba menghubungkan ulang...");
+    }
+});
+
+// 2. Fungsi Restart Koneksi
+function refreshConnection() {
+    goOffline(database);
+    setTimeout(() => {
+        goOnline(database);
+    }, 1000);
+}
+
+// 3. Reconnect Otomatis Saat Layar HP / Tab Dibuka Kembali
+document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "visible") {
+        console.log("Tab kembali aktif, memperbarui koneksi...");
+        refreshConnection();
     }
 });
