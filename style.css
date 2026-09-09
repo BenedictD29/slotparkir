@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial Rounded MT Bold', 'Helvetica Neue', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #DA291C;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background Gambar Custom + Blur */
+.bg-overlay {
+    position: fixed;
+    top: -10px;
+    left: -10px;
+    width: calc(100% + 20px);
+    height: calc(100% + 20px);
+    
+    /* GANTI URL GAMBAR BACKGROUND DI SINI */
+    background-image: url('https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=1000'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    filter: blur(8px); /* Atur tingkat blur di sini */
+    z-index: 1;
+}
+
+/* Card UI McD */
+.card {
+    position: relative;
+    z-index: 2;
+    background: #FFFFFF;
+    width: 340px;
+    padding: 35px 25px;
+    border-radius: 24px;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.logo {
+    font-family: 'Arial', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: #FFC72C; /* Kuning McD */
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+h2 {
+    color: #27251F;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+}
+
+.subtitle {
+    font-size: 0.75rem;
+    color: #707070;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.time {
+    font-size: 0.8rem;
+    color: #505050;
+    background-color: #F8F8F8;
+    padding: 8px 12px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.slot-container {
+    background-color: #FFF8E7;
+    border: 2px dashed #FFC72C;
+    border-radius: 16px;
+    padding: 20px 10px;
+}
+
+.slot-label {
+    font-size: 0.85rem;
+    color: #27251F;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.slot-box {
+    font-size: 4rem;
+    font-weight: 800;
+    color: #DA291C; /* Merah McD */
+    margin-top: 5px;
+    line-height: 1;
+}
