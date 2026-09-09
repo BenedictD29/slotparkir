@@ -10,7 +10,6 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #DA291C;
     position: relative;
     overflow: hidden;
 }
@@ -24,13 +23,20 @@ body {
     height: calc(100% + 20px);
     
     /* GANTI URL GAMBAR BACKGROUND DI SINI */
-    background-image: url('https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=1000'); 
+    background-image: url(''); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     
     filter: blur(8px); /* Atur tingkat blur di sini */
     z-index: 1;
+}
+
+a{
+    display: block;
+    margin-top: 25px;      /* Menurunkan posisi teks ke bawah */
+    margin-bottom: 10px;   /* Memberi jarak seimbang dengan dasar kartu */
+    text-decoration: none;
 }
 
 /* Card UI McD */
@@ -95,7 +101,6 @@ h2 {
 .slot-box {
     font-size: 4rem;
     font-weight: 800;
-    color: #DA291C; /* Merah McD */
     margin-top: 5px;
     line-height: 1;
 }
