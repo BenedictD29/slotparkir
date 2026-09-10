@@ -21,7 +21,6 @@ body {
     backdrop-filter: blur(8px);
 }
 
-/* Background Gambar Custom + Blur */
 a{
     display: block;
     margin-top: 25px;      /* Menurunkan posisi teks ke bawah */
@@ -38,7 +37,8 @@ a{
     padding: 35px 25px;
     border-radius: 24px;
     text-align: center;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    box-shadow: 100px 100px 100px rgba(0, 0, 0, 0.3);
+    opacity: 1;
 }
 
 .logo {
@@ -75,10 +75,11 @@ h2 {
 }
 
 .slot-container {
-    background-color: #FFF8E7;
+    background-color: #ffbf00e5;
     border: 2px dashed #FFC72C;
     border-radius: 16px;
     padding: 20px 10px;
+    box-shadow: #27251F;
 }
 
 .slot-label {
