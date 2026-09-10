@@ -16,20 +16,13 @@ body {
 
 /* Background Gambar Custom + Blur */
 .bg-overlay {
-    position: fixed;
-    top: -10px;
-    left: -10px;
-    width: calc(100% + 20px);
-    height: calc(100% + 20px);
-    
-    /* GANTI URL GAMBAR BACKGROUND DI SINI */
-    background-image: url(''); 
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    
-    filter: blur(8px); /* Atur tingkat blur di sini */
-    z-index: 1;
+      margin: 0;
+      min-height: 100vh;
+      background-image: url('OIP.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      backdrop-filter: blur(8px);
 }
 
 a{
