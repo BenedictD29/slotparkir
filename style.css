@@ -74,14 +74,6 @@ h2 {
     margin-bottom: 20px;
 }
 
-.slot-container {
-    background-color: #ffbf00e5;
-    border: 2px dashed #FFC72C;
-    border-radius: 16px;
-    padding: 20px 10px;
-    box-shadow: #27251F;
-}
-
 .slot-label {
     font-size: 0.85rem;
     color: #27251F;
